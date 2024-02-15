@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class FPSController : PortalTraveller {
 
+    public static FPSController Instance;
+
     public float walkSpeed = 3;
     public float runSpeed = 6;
     public float smoothMoveTime = 0.1f;
@@ -34,6 +36,11 @@ public class FPSController : PortalTraveller {
     float lastGroundedTime;
     bool disabled;
 
+    void Awake()
+    {
+        Instance= this;
+    }
+
     void Start () {
         cam = Camera.main;
         if (lockCursor) {
@@ -56,9 +63,9 @@ public class FPSController : PortalTraveller {
             Debug.Break ();
         }
         if (Input.GetKeyDown (KeyCode.O)) {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
             disabled = !disabled;
+            Cursor.lockState = disabled?CursorLockMode.None:CursorLockMode.None;
+            Cursor.visible = disabled;
         }
 
         if (disabled) {
