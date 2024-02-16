@@ -13645,8 +13645,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1079675719}
+  - component: {fileID: 1079675720}
   m_Layer: 5
-  m_Name: InteractionButtonHolders
+  m_Name: InteractionButtonDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13688,6 +13689,38 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1079675720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1079675718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aeca7cfac478fc04795b4db008f2dcf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 2012221781}
+  canvas: {fileID: 1979212318}
+  buttonImageBuffer:
+  - {fileID: 238606418077748654}
+  - {fileID: 297790970}
+  - {fileID: 128835507}
+  - {fileID: 402553506}
+  - {fileID: 1751671947}
+  - {fileID: 653517310}
+  - {fileID: 1092707336}
+  - {fileID: 884501461}
+  - {fileID: 1068145325}
+  - {fileID: 204365431}
+  - {fileID: 972444256}
+  - {fileID: 1344522402}
+  - {fileID: 452452381}
+  - {fileID: 1046044348}
+  - {fileID: 1374795116}
+  - {fileID: 306969298}
+  - {fileID: 23177598}
 --- !u!1 &1080664916 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1924971962959838503, guid: 5e9fdd50c67ae4b318131fe99fd22854,
@@ -21371,26 +21404,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd31f9395ed3f8f47a0f4528cb0c8df7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 2012221781}
-  canvas: {fileID: 1979212318}
-  buttonImageBuffer:
-  - {fileID: 238606418077748654}
-  - {fileID: 297790970}
-  - {fileID: 128835507}
-  - {fileID: 402553506}
-  - {fileID: 1751671947}
-  - {fileID: 653517310}
-  - {fileID: 1092707336}
-  - {fileID: 884501461}
-  - {fileID: 1068145325}
-  - {fileID: 204365431}
-  - {fileID: 972444256}
-  - {fileID: 1344522402}
-  - {fileID: 452452381}
-  - {fileID: 1046044348}
-  - {fileID: 1374795116}
-  - {fileID: 306969298}
-  - {fileID: 23177598}
+  inventoryDisplay: {fileID: 628624210}
+  interactionDisplay: {fileID: 1079675720}
 --- !u!114 &1979212316
 MonoBehaviour:
   m_ObjectHideFlags: 0

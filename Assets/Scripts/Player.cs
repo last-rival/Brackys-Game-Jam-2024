@@ -66,8 +66,11 @@ public class Player : MonoBehaviourInstance<Player>
     {
         if (inventory.TryGetValue(key, out var count))
         {
-            inventory[key] = count + amount;
+            amount += count;
         }
+
+        inventory[key] = amount;
+        UI_Manager.Instance.UpdateInventroy(inventory);
     }
 
     public void Update()

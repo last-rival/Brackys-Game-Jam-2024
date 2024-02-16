@@ -33,6 +33,7 @@ public class CarryItem : MonoBehaviour, ICarryItem
         if (rb.isKinematic == false)
         {
             Player.Instance.Carry(transform);
+            Player.Instance.AddKey(Key);
             interaction.enabled = false;
         }
     }
