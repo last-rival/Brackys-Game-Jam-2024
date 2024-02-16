@@ -61,4 +61,13 @@ public static class FastUtils
         list[index] = list.Last();
         list.RemoveAt(list.Count - 1);
     }
+
+    public static void SetLayerRecursive(this GameObject gameObject, int layer)
+    {
+        Transform[] carryTransforms = gameObject.GetComponentsInChildren<Transform>();
+        foreach (Transform t in carryTransforms)
+        {
+            t.gameObject.layer = layer;
+        }
+    }
 }
