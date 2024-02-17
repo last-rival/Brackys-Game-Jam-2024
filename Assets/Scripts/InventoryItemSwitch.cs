@@ -18,7 +18,7 @@ public class InventoryItemSwitch : MonoBehaviour
     public InventoryKey[] validKeyOptions;
 
     [SerializeField]
-    public KeyChain keyChain;
+    KeyChain keyChain;
 
     public WorldButtonClickEvent OnSwitchUpdated;
 
@@ -43,6 +43,12 @@ public class InventoryItemSwitch : MonoBehaviour
 
     //    return false;
     //}
+
+    public void ShowKey(InventoryKey key)
+    {
+        OnSwitchUpdated?.Invoke(IsUnlockedByKey(key));
+        keyChain.ShowKey(key);
+    }
 
     public void SetKey(InventoryKey key)
     {
@@ -80,7 +86,9 @@ public class InventoryItemSwitch : MonoBehaviour
     //    OnKeysUpdated();
     //}
 
-    public bool IsUnlocked()
+    public bool IsUnlocked => IsUnlockedByKey(activeKey);
+
+    bool IsUnlockedByKey(InventoryKey key)
     {
         if (requiredKey == InventoryKey.None)
             return true;
@@ -91,12 +99,12 @@ public class InventoryItemSwitch : MonoBehaviour
         //        return false;
         //}
 
-        return activeKey == requiredKey;
+        return key == requiredKey;
     }
 
     void OnKeysUpdated()
     {
-        OnSwitchUpdated?.Invoke(IsUnlocked());
+        OnSwitchUpdated?.Invoke(IsUnlocked);
         //keyChain.ShowKeys(activeKeys);
         keyChain.ShowKey(activeKey);
     }

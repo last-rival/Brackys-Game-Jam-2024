@@ -28,7 +28,7 @@ public class InventoryItemSwitchInteraction : MonoBehaviour
         UIInventoryItemSwitchDisplay.Instance.ShowInventory(validInventoryKeys);
         UIInventoryItemSwitchDisplay.Instance.SetSelectedKey(selectedKey);
 
-        itemSwitch.keyChain.ShowKey(selectedKey);
+        itemSwitch.ShowKey(selectedKey);
         OnKeySet?.Invoke(selectedKey);
         validInventoryKeys.Contains(selectedKey, out keyIndex);
         enabled = true;
@@ -37,7 +37,7 @@ public class InventoryItemSwitchInteraction : MonoBehaviour
     public void OnInteractionEnded()
     {
         SubmitKey();
-        itemSwitch.keyChain.ShowKey(itemSwitch.activeKey);
+        itemSwitch.ShowKey(itemSwitch.activeKey);
         UIInventoryItemSwitchDisplay.Instance.HideDisplay();
         enabled = false;
     }
@@ -70,7 +70,7 @@ public class InventoryItemSwitchInteraction : MonoBehaviour
 
         selectedKey = validInventoryKeys[keyIndex];
         OnKeySet?.Invoke(selectedKey);
-        itemSwitch.keyChain.ShowKey(selectedKey);
+        itemSwitch.ShowKey(selectedKey);
         UIInventoryItemSwitchDisplay.Instance.SetSelectedKey(selectedKey);
     }
 
