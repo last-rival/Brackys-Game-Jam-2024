@@ -42,6 +42,12 @@ public class Portal : MonoBehaviour
     void HandleTravellers()
     {
 
+        if (linkedPortal == null)
+        { 
+            return;
+        }
+
+
         for (int i = 0; i < trackedTravellers.Count; i++)
         {
             PortalTraveller traveller = trackedTravellers[i];
@@ -76,6 +82,11 @@ public class Portal : MonoBehaviour
     // Called before any portal cameras are rendered for the current frame
     public void PrePortalRender()
     {
+        if (linkedPortal == null)
+        { 
+            return;
+        }
+
         foreach (var traveller in trackedTravellers)
         {
             UpdateSliceParams(traveller);
@@ -86,6 +97,10 @@ public class Portal : MonoBehaviour
     // Called after PrePortalRender, and before PostPortalRender
     public void Render()
     {
+        if (linkedPortal == null)
+        {
+            return;
+        }
 
         // Skip rendering the view from this portal if player is not looking at the linked portal
         if (!CameraUtility.VisibleFromCamera(linkedPortal.screen, playerCam))
@@ -213,6 +228,11 @@ public class Portal : MonoBehaviour
     // Called once all portals have been rendered, but before the player camera renders
     public void PostPortalRender()
     {
+        if (linkedPortal == null)
+        {
+            return; 
+        }
+
         foreach (var traveller in trackedTravellers)
         {
             UpdateSliceParams(traveller);

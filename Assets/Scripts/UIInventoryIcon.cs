@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,6 +17,7 @@ public class UIInventoryIcon : MonoBehaviour
         key = data.key;
         icon.sprite = data.image;
         icon.color = data.color;
+
         amountLabel.SetText(count.ToString());
     }
 }

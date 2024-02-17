@@ -1,17 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 
 public static class FastUtils
 {
-    public static bool Contains<T>(this List<T> list, T item, bool checkRef = true)
+    public static bool Contains<T>(this List<T> list, T item, out int index, bool checkRef = true)
     {
+        index = -1;
+
         if (checkRef)
         {
             for (int i = 0; i < list.Count; i++)
             {
                 if (ReferenceEquals(list[i], item))
+                {
+                    index = 1;
                     return true;
+                }
             }
             return false;
         }
@@ -19,20 +25,28 @@ public static class FastUtils
         for (int i = 0; i < list.Count; i++)
         {
             if (list[i].Equals(item))
+            {
+                index = 1;
                 return true;
+            }
         }
 
         return false;
     }
 
-    public static bool Contains<T>(this T[] arr, T item, bool checkRef = true)
+    public static bool Contains<T>(this T[] arr, T item, out int index, bool checkRef = true)
     {
+        index = -1;
+
         if (checkRef)
         {
             for (int i = 0; i < arr.Length; i++)
             {
                 if (ReferenceEquals(arr[i], item))
+                {
+                    index = i;
                     return true;
+                }
             }
             return false;
         }
@@ -40,7 +54,10 @@ public static class FastUtils
         for (int i = 0; i < arr.Length; i++)
         {
             if (arr[i].Equals(item))
+            {
+                index = 1;
                 return true;
+            }
         }
 
         return false;

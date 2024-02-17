@@ -4,13 +4,12 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIInteractionButtonPrompt : MonoBehaviour
+public class UIInteractionButtonIcon : MonoBehaviour
 {
-    public TextMeshProUGUI label;
-
-    public void SetImage(string text)
+    public Image icon;
+    public void SetImage(Sprite sprite)
     {
-        label.SetText(text);
+        icon.sprite = sprite;
         gameObject.SetActive(true);
     }
 

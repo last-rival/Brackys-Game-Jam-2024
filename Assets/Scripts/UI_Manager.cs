@@ -12,12 +12,15 @@ public class UI_Manager : MonoBehaviourInstance<UI_Manager>
     [SerializeField]
     UIIntreactionButtonDisplay interactionDisplay;
 
-    public void ShowInteractionButton(KeyCode key, Transform worldAnchor, bool show)
+    public void ShowInteractionButton(InteractionKey key, Transform worldAnchor, bool show)
     {
+        if (key == InteractionKey.None)
+            return;
+
         interactionDisplay.ShowInteractionButton(key, worldAnchor, show);
     }
 
-    internal void UpdateInventroy(Dictionary<InventoryKey, int> inventory)
+    internal void UpdateInventory(Dictionary<InventoryKey, int> inventory)
     {
         inventoryDisplay.ClearItems();
 
