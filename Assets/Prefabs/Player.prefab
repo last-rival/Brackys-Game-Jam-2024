@@ -48,14 +48,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   graphicsObject: {fileID: 7665427741182837590}
   walkSpeed: 4
-  runSpeed: 8
+  runSpeed: 4
   smoothMoveTime: 0.15
   jumpForce: 8
-  gravity: 18
+  gravity: 8
   lockCursor: 1
-  mouseSensitivity: 11
+  mouseSensitivity: 4
   pitchMinMax: {x: -40, y: 85}
-  rotationSmoothTime: 0.1
+  rotationSmoothTime: 0
   yaw: 5.187398
   pitch: 0.5499961
 --- !u!143 &1535381019623673733
