@@ -685,7 +685,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &897415050328178392
 Transform:
   m_ObjectHideFlags: 0
@@ -712,7 +712,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6dcef977bb824a4c8aa26bde85cd5d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numViewDirections: 1000
+  numViewDirections: 250
   numClouds: 10
   cloudSpawnSeed: 0
   randomizeCloudSeed: 0

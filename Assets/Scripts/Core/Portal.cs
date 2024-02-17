@@ -324,7 +324,6 @@ public class Portal : MonoBehaviour
             traveller.cloneMaterials[i].SetVector("sliceCentre", cloneSlicePos);
             traveller.cloneMaterials[i].SetVector("sliceNormal", cloneSliceNormal);
             traveller.cloneMaterials[i].SetFloat("sliceOffsetDst", cloneSliceOffsetDst);
-
         }
 
     }

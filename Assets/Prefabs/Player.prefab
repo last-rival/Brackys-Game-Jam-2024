@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &546879157314833121
 Transform:
   m_ObjectHideFlags: 0
@@ -177,10 +177,10 @@ CharacterController:
   serializedVersion: 2
   m_Height: 2
   m_Radius: 0.5
-  m_SlopeLimit: 10
+  m_SlopeLimit: 30
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
+  m_MinMoveDistance: 0.01
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4516161909943060290
 MonoBehaviour:
@@ -256,7 +256,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.03
-  far clip plane: 1000
+  far clip plane: 100
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -295,6 +295,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a42331d6ec5746d4960a877e58cfb58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Camera: {fileID: 0}
+  portals: []
 --- !u!114 &948043056
 MonoBehaviour:
   m_ObjectHideFlags: 0
