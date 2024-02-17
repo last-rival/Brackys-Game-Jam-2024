@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Player : MonoBehaviourInstance<Player>
@@ -9,7 +10,7 @@ public class Player : MonoBehaviourInstance<Player>
     [SerializeField]
     int inventoryLayer;
 
-    Dictionary<InventoryKey, int> inventory = new Dictionary<InventoryKey, int>();
+    public Dictionary<InventoryKey, int> inventory = new Dictionary<InventoryKey, int>();
 
     Transform carryItem;
     private int carryItemLayer;
@@ -60,6 +61,8 @@ public class Player : MonoBehaviourInstance<Player>
         {
             inventory[key] = Mathf.Max(count - amount, 0);
         }
+
+        UI_Manager.Instance.UpdateInventory(inventory);
     }
 
     public void AddKey(InventoryKey key, int amount = 1)
@@ -75,7 +78,8 @@ public class Player : MonoBehaviourInstance<Player>
 
     public void Update()
     {
-        if(Input.GetKey(KeyCode.C)) {
+        if (Input.GetKey(KeyCode.C))
+        {
             Drop();
         }
     }

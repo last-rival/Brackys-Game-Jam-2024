@@ -83,7 +83,7 @@ public class WorldInteractionButton : MonoBehaviour
             return;
         }
 
-        if (interactionKey == InteractionKey.None)
+        if (interactionKey == InteractionKey.None || interactionKey >= InteractionKey.Extra)
         {
             return;
         }
@@ -123,6 +123,6 @@ public enum InteractionKey
     RightClick = 1,
     F = KeyCode.F,
     E = KeyCode.E,
-    WheelUp,
-    WheelDown,
+    Extra,
+    MouseWheel,
 }

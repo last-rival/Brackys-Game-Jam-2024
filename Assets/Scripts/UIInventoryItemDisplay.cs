@@ -23,7 +23,7 @@ public class UIInventoryItemDisplay : MonoBehaviour
             if (itemIcon.key == key || itemIcon.gameObject.activeSelf == false)
             {
                 itemIcon.SetInventoryIcon(data, amount);
-                itemIcon.gameObject.SetActive(true);
+                itemIcon.gameObject.SetActive(amount > 0);
                 break;
             }
         }
