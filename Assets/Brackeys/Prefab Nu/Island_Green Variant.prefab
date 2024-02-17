@@ -12,11 +12,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Island_Green
       objectReference: {fileID: 0}
-    - target: {fileID: 897415050577529700, guid: 26dac1cc3b4610e4cbc504cbe7a7bad8,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 897415050577529699, guid: 26dac1cc3b4610e4cbc504cbe7a7bad8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -72,5 +67,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2177592233762749069, guid: 26dac1cc3b4610e4cbc504cbe7a7bad8,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1ef702d3c625fa343ac21337df61beaf, type: 2}
+    - target: {fileID: 897415049188633916, guid: 26dac1cc3b4610e4cbc504cbe7a7bad8,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 600f7b9bd1037014ab84634e6e45ef56, type: 2}
+    - target: {fileID: 897415049484058552, guid: 26dac1cc3b4610e4cbc504cbe7a7bad8,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 07b637930473d0e41833c94e520faea4, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26dac1cc3b4610e4cbc504cbe7a7bad8, type: 3}
