@@ -96,10 +96,12 @@ public class WorldInteractionButton : MonoBehaviour
                 return;
             }
         }
-
-        if (Input.GetMouseButtonDown((int)interactionKey))
+        else
         {
-            ToggleState();
+            if (Input.GetMouseButtonDown((int)interactionKey))
+            {
+                ToggleState();
+            }
         }
     }
 
@@ -116,7 +118,7 @@ public class WorldButtonClickEvent : UnityEvent<bool> { }
 [Serializable]
 public enum InteractionKey
 {
-    None=-1,
+    None = -1,
     LeftClick = 0,
     RightClick = 1,
     F = KeyCode.F,

@@ -35,9 +35,16 @@ public class InventoryKeyItemPickup : MonoBehaviour, ICarryItem
         gameObject.SetActive(false);
     }
 
+    public void OnPlayerInteractionCarry(bool _)
+    {
+        interaction.enabled = false;
+        Player.Instance.AddKey(Key);
+        Player.Instance.Carry(transform);
+    }
+
     public void OnCarry(Transform parent)
     {
-        if(rb)
+        if (rb)
             rb.isKinematic = true;
 
         Player.Instance.AddKey(Key);
@@ -46,7 +53,7 @@ public class InventoryKeyItemPickup : MonoBehaviour, ICarryItem
 
     public void OnDrop(Transform parent)
     {
-        if(rb)
+        if (rb)
             rb.isKinematic = false;
 
         Player.Instance.UseKey(Key);

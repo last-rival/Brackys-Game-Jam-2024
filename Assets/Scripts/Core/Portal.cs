@@ -43,7 +43,9 @@ public class Portal : MonoBehaviour
     {
 
         if (linkedPortal == null)
+        { 
             return;
+        }
 
 
         for (int i = 0; i < trackedTravellers.Count; i++)
@@ -80,8 +82,10 @@ public class Portal : MonoBehaviour
     // Called before any portal cameras are rendered for the current frame
     public void PrePortalRender()
     {
-        if (linkedPortal != null)
+        if (linkedPortal == null)
+        { 
             return;
+        }
 
         foreach (var traveller in trackedTravellers)
         {
@@ -93,7 +97,7 @@ public class Portal : MonoBehaviour
     // Called after PrePortalRender, and before PostPortalRender
     public void Render()
     {
-        if (linkedPortal != null)
+        if (linkedPortal == null)
         {
             return;
         }
@@ -225,7 +229,9 @@ public class Portal : MonoBehaviour
     public void PostPortalRender()
     {
         if (linkedPortal == null)
-            return;
+        {
+            return; 
+        }
 
         foreach (var traveller in trackedTravellers)
         {

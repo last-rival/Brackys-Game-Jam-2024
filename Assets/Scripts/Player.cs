@@ -72,4 +72,11 @@ public class Player : MonoBehaviourInstance<Player>
         inventory[key] = amount;
         UI_Manager.Instance.UpdateInventory(inventory);
     }
+
+    public void Update()
+    {
+        if(Input.GetKey(KeyCode.C)) {
+            Drop();
+        }
+    }
 }
