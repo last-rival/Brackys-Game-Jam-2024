@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SwithDisplay : MonoBehaviour
+public class SwitchDisplay : MonoBehaviour
 {
     
 }

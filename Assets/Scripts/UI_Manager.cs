@@ -1,71 +1,27 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class UI_Manager : MonoBehaviourInstance<UI_Manager>
 {
-    public Camera cam;
-    public Canvas canvas;
     [SerializeField]
-    List<UIInteractionButtonPrompt> buttonImageBuffer;
+    UIInventoryItemDisplay inventoryDisplay;
 
-    List<(KeyCode key, Transform anchor)> interactionPoints = new List<(KeyCode key, Transform anchor)>(8);
+    [SerializeField]
+    UIIntreactionButtonDisplay interactionDisplay;
 
     public void ShowInteractionButton(KeyCode key, Transform worldAnchor, bool show)
     {
-        if (show)
-        {
-            if (interactionPoints.Contains((key, worldAnchor)))
-            {
-                return;
-            }
-
-            interactionPoints.Add((key, worldAnchor));
-            canUpdate = true;
-            return;
-        }
-
-        int index = interactionPoints.IndexOf((key, worldAnchor));
-        interactionPoints.RemoveAtSwapBack(index);
+        interactionDisplay.ShowInteractionButton(key, worldAnchor, show);
     }
 
-
-    private bool canUpdate;
-
-    private void Update()
+    internal void UpdateInventroy(Dictionary<InventoryKey, int> inventory)
     {
-
-        if (!canUpdate)
+        foreach (var item in inventory)
         {
-            return;
+            inventoryDisplay.ShowInventoryIcon(item.Key, item.Value);
         }
-
-        int imageIndex = 0;
-        for (int i = 0; i < interactionPoints.Count; i++)
-        {
-            var interactionPoint = interactionPoints[i];
-            var dot = Vector3.Dot(cam.transform.forward, (interactionPoint.anchor.position - cam.transform.position).normalized);
-
-            if (dot < 0)
-                continue;
-
-            var screenPos = cam.WorldToScreenPoint(interactionPoint.anchor.position);
-            var uiPoint = canvas.transform.InverseTransformPoint(screenPos);
-
-            buttonImageBuffer[imageIndex].SetImage(interactionPoint.key.ToString());
-            buttonImageBuffer[imageIndex].transform.localPosition = uiPoint;
-            imageIndex++;
-        }
-
-        for (int i = imageIndex; i < buttonImageBuffer.Count; i++)
-        {
-            if (buttonImageBuffer[i].gameObject.activeSelf)
-            {
-                buttonImageBuffer[i].Hide();
-            }
-        }
-
-        canUpdate = interactionPoints.Count > 0;
     }
 }
