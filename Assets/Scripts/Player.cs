@@ -55,6 +55,22 @@ public class Player : MonoBehaviourInstance<Player>
         return false;
     }
 
+    public bool GetIndexOfKey(InventoryKey key, out int index)
+    {
+        index = 0;
+        foreach (var item in inventory)
+        {
+            if (item.Key == key)
+            {
+                return true;
+            }
+            index++;
+        }
+
+        index = -1;
+        return false;
+    }
+
     public void UseKey(InventoryKey key, int amount = 1)
     {
         if (inventory.TryGetValue(key, out var count))

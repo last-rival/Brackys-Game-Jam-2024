@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Interaction Icon Data
   m_EditorClassIdentifier: 
   defaultData:
-    key: 0
+    key: 102
     sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   data:
   - key: 0

@@ -17,7 +17,6 @@ public class UIInventoryIcon : MonoBehaviour
         key = data.key;
         icon.sprite = data.image;
         icon.color = data.color;
-
         amountLabel.SetText(count.ToString());
     }
 }

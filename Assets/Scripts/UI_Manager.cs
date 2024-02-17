@@ -20,7 +20,7 @@ public class UI_Manager : MonoBehaviourInstance<UI_Manager>
         interactionDisplay.ShowInteractionButton(key, worldAnchor, show);
     }
 
-    internal void UpdateInventory(Dictionary<InventoryKey, int> inventory)
+    public void UpdateInventory(Dictionary<InventoryKey, int> inventory)
     {
         inventoryDisplay.ClearItems();
 

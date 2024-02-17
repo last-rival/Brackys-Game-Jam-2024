@@ -71,7 +71,7 @@ public class WorldInteractionButton : MonoBehaviour
             return;
         }
 
-        OnTriggerEnterEvent?.Invoke();
+        OnTriggerExitEvent?.Invoke();
 
         UI_Manager.Instance.ShowInteractionButton(interactionKey, interactionAnchor, false);
         enabled = false;

@@ -9,36 +9,35 @@ public class InventoryItemSwitchInteraction : MonoBehaviour
     int keyIndex = 0;
     [SerializeField]
     InventoryKey selectedKey;
+
+    [SerializeField]
+    Transform uiAnchor;
     public void OnInteractionStarted()
     {
-        if (Player.Instance.inventory.Count == 0 && itemSwitch.activeKey == InventoryKey.None)
-            return;
+        selectedKey = itemSwitch.activeKey;
+        ClearKey();
 
-        itemSwitch.keyChain.ShowKey(itemSwitch.activeKey);
+        UIInventoryItemSwitchDisplay.Instance.ShowDisplayAt(uiAnchor);
+        UIInventoryItemSwitchDisplay.Instance.ShowInventory();
+        UIInventoryItemSwitchDisplay.Instance.SetSelectedKey(selectedKey);
+        itemSwitch.keyChain.ShowKey(selectedKey);
         enabled = true;
-        keyIndex = 0;
+        if (Player.Instance.GetIndexOfKey(selectedKey, out keyIndex) == false)
+        {
+            keyIndex = -1;
+        }
     }
 
     public void OnInteractionEnded()
     {
+        SubmitKey();
         itemSwitch.keyChain.ShowKey(itemSwitch.activeKey);
+        UIInventoryItemSwitchDisplay.Instance.HideDisplay();
         enabled = false;
     }
 
     void Update()
     {
-        if (Input.GetMouseButton(0))
-        {
-            SubmitKey();
-            return;
-        }
-
-        if (Input.GetMouseButton(1))
-        {
-            ClearKey();
-            return;
-        }
-
         var delta = Input.mouseScrollDelta.y;
         delta = delta + (Input.GetKeyDown(KeyCode.Q) ? -1f : Input.GetKeyDown(KeyCode.E) ? 1f : 0f);
         if (Mathf.Approximately(delta, 0))
@@ -52,10 +51,17 @@ public class InventoryItemSwitchInteraction : MonoBehaviour
             return;
         }
 
-        if (delta > 0)
+        if (delta < 0)
         {
             keyIndex++;
-            if (keyIndex >= inventory.Count)
+            if (keyIndex == inventory.Count)
+            {
+                selectedKey = InventoryKey.None;
+                ClearKey();
+                return;
+            }
+
+            if (keyIndex > inventory.Count)
             {
                 keyIndex = 0;
             }
@@ -63,6 +69,13 @@ public class InventoryItemSwitchInteraction : MonoBehaviour
         else
         {
             keyIndex--;
+            if (keyIndex == -1)
+            {
+                selectedKey = InventoryKey.None;
+                ClearKey();
+                return;
+            }
+
             if (keyIndex < 0)
             {
                 keyIndex = inventory.Count - 1;
@@ -83,13 +96,14 @@ public class InventoryItemSwitchInteraction : MonoBehaviour
         }
 
         itemSwitch.keyChain.ShowKey(selectedKey);
+        UIInventoryItemSwitchDisplay.Instance.SetSelectedKey(selectedKey);
     }
 
     private void SubmitKey()
     {
-        ClearKey();
         Player.Instance.UseKey(selectedKey);
         itemSwitch.SetKey(selectedKey);
+        UIInventoryItemSwitchDisplay.Instance.SetSelectedKey(selectedKey);
     }
 
     private void ClearKey()
@@ -99,5 +113,6 @@ public class InventoryItemSwitchInteraction : MonoBehaviour
         {
             Player.Instance.AddKey(oldKey);
         }
+        UIInventoryItemSwitchDisplay.Instance.SetSelectedKey(InventoryKey.None);
     }
 }

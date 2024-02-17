@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7741937411023638225}
   m_Layer: 0
-  m_Name: InteractionAnchor
+  m_Name: UIAnchor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -152,7 +152,7 @@ GameObject:
   - component: {fileID: 7741937412581673850}
   - component: {fileID: 7554688779738365913}
   m_Layer: 0
-  m_Name: Pf  Portal Lock
+  m_Name: Pf Inventory Item Switch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -202,7 +202,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   requiredKey: 0
   activeKey: 0
-  _isLock: 0
   keyChain: {fileID: 6217399395206737736}
   OnSwithUpdated:
     m_PersistentCalls:
@@ -278,6 +277,7 @@ MonoBehaviour:
   itemSwitch: {fileID: 7741937412581673851}
   keyIndex: 0
   selectedKey: 0
+  uiAnchor: {fileID: 7741937411023638225}
 --- !u!1001 &7757199828589117861
 PrefabInstance:
   m_ObjectHideFlags: 0
