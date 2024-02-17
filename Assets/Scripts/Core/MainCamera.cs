@@ -3,7 +3,7 @@
 public class MainCamera : MonoBehaviourInstance<MainCamera>
 {
     public Camera Camera;
-    Portal[] portals;
+    public Portal[] portals;
 
     protected override void OnAwake()
     {
@@ -17,6 +17,7 @@ public class MainCamera : MonoBehaviourInstance<MainCamera>
         {
             portals[i].PrePortalRender();
         }
+
         for (int i = 0; i < portals.Length; i++)
         {
             portals[i].Render();

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 public class InventoryItemSwitchInteraction : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class InventoryItemSwitchInteraction : MonoBehaviour
 
     [SerializeField]
     Transform uiAnchor;
+
+    public InventoryKeySetEvent OnKeySet;
+
     public void OnInteractionStarted()
     {
         selectedKey = itemSwitch.activeKey;
@@ -21,6 +25,8 @@ public class InventoryItemSwitchInteraction : MonoBehaviour
         UIInventoryItemSwitchDisplay.Instance.ShowInventory();
         UIInventoryItemSwitchDisplay.Instance.SetSelectedKey(selectedKey);
         itemSwitch.keyChain.ShowKey(selectedKey);
+        OnKeySet?.Invoke(selectedKey);
+
         enabled = true;
         if (Player.Instance.GetIndexOfKey(selectedKey, out keyIndex) == false)
         {
@@ -57,6 +63,7 @@ public class InventoryItemSwitchInteraction : MonoBehaviour
             if (keyIndex == inventory.Count)
             {
                 selectedKey = InventoryKey.None;
+                OnKeySet?.Invoke(selectedKey);
                 ClearKey();
                 return;
             }
@@ -72,6 +79,7 @@ public class InventoryItemSwitchInteraction : MonoBehaviour
             if (keyIndex == -1)
             {
                 selectedKey = InventoryKey.None;
+                OnKeySet?.Invoke(selectedKey);
                 ClearKey();
                 return;
             }
@@ -95,6 +103,7 @@ public class InventoryItemSwitchInteraction : MonoBehaviour
             index++;
         }
 
+        OnKeySet?.Invoke(selectedKey);
         itemSwitch.keyChain.ShowKey(selectedKey);
         UIInventoryItemSwitchDisplay.Instance.SetSelectedKey(selectedKey);
     }
@@ -116,3 +125,7 @@ public class InventoryItemSwitchInteraction : MonoBehaviour
         UIInventoryItemSwitchDisplay.Instance.SetSelectedKey(InventoryKey.None);
     }
 }
+
+
+[System.Serializable]
+public class InventoryKeySetEvent : UnityEvent<InventoryKey> { }

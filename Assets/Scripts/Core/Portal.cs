@@ -11,6 +11,7 @@ public class Portal : MonoBehaviour
     public Portal linkedPortal;
     public MeshRenderer screen;
     public int recursionLimit = 5;
+    public GameObject unLinkedScreen;
 
     [Header("Advanced Settings")]
     public float nearClipOffset = 0.05f;
@@ -18,11 +19,13 @@ public class Portal : MonoBehaviour
 
     // Private variables
     RenderTexture viewTexture;
-    Camera portalCam;
+    public Camera portalCam;
     Camera playerCam;
     Material firstRecursionMat;
     List<PortalTraveller> trackedTravellers;
     MeshFilter screenMeshFilter;
+
+    bool isUnlinked;
 
     void Awake()
     {
@@ -41,9 +44,8 @@ public class Portal : MonoBehaviour
 
     void HandleTravellers()
     {
-
         if (linkedPortal == null)
-        { 
+        {
             return;
         }
 
@@ -99,7 +101,18 @@ public class Portal : MonoBehaviour
     {
         if (linkedPortal == null)
         {
+            if (isUnlinked == false)
+            {
+                unLinkedScreen?.SetActive(true);
+            }
+            isUnlinked = true;
             return;
+        }
+
+        if (isUnlinked)
+        {
+            isUnlinked=false;
+            unLinkedScreen?.SetActive(false);
         }
 
         // Skip rendering the view from this portal if player is not looking at the linked portal
@@ -243,16 +256,21 @@ public class Portal : MonoBehaviour
     {
         if (viewTexture == null || viewTexture.width != Screen.width || viewTexture.height != Screen.height)
         {
-            if (viewTexture != null)
-            {
-                viewTexture.Release();
-            }
-            viewTexture = new RenderTexture(Screen.width, Screen.height, 0);
-            // Render the view from the portal camera to the view texture
-            portalCam.targetTexture = viewTexture;
-            // Display the view texture on the screen of the linked portal
-            linkedPortal.screen.material.SetTexture("_MainTex", viewTexture);
+            UpdateViewTexture();
         }
+    }
+
+    public void UpdateViewTexture()
+    {
+        if (viewTexture != null)
+        {
+            viewTexture.Release();
+        }
+        viewTexture = new RenderTexture(Screen.width, Screen.height, 0);
+        // Render the view from the portal camera to the view texture
+        portalCam.targetTexture = viewTexture;
+        // Display the view texture on the screen of the linked portal
+        linkedPortal.screen.material.SetTexture("_MainTex", viewTexture);
     }
 
     // Sets the thickness of the portal screen so as not to clip with camera near plane when player goes through

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 public class InventoryItemSwitch : MonoBehaviour
 {
@@ -15,12 +16,12 @@ public class InventoryItemSwitch : MonoBehaviour
     [SerializeField]
     public KeyChain keyChain;
 
-    public WorldButtonClickEvent OnSwithUpdated;
+    public WorldButtonClickEvent OnSwitchUpdated;
 
-    void Start()
-    {
-        //activeKeys = new InventoryKey[requiredKeys.Length];
-    }
+    //void Start()
+    //{
+    //    activeKeys = new InventoryKey[requiredKeys.Length];
+    //}
 
     //public bool AddKey(InventoryKey key)
     //{
@@ -89,7 +90,7 @@ public class InventoryItemSwitch : MonoBehaviour
 
     void OnKeysUpdated()
     {
-        OnSwithUpdated?.Invoke(IsUnlocked());
+        OnSwitchUpdated?.Invoke(IsUnlocked());
         //keyChain.ShowKeys(activeKeys);
         keyChain.ShowKey(activeKey);
     }
