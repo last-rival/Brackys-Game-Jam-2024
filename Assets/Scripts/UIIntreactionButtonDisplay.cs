@@ -7,11 +7,14 @@ public class UIIntreactionButtonDisplay : MonoBehaviour
     public Camera cam;
     public Canvas canvas;
     [SerializeField]
-    List<UIInteractionButtonPrompt> buttonImageBuffer;
+    List<UIInteractionButtonIcon> buttonImageBuffer;
 
-    List<(KeyCode key, Transform anchor)> interactionPoints = new List<(KeyCode key, Transform anchor)>(8);
+    [SerializeField]
+    UIInteractionButtonIconData interactionData;
 
-    public void ShowInteractionButton(KeyCode key, Transform worldAnchor, bool show)
+    List<(InteractionKey key, Transform anchor)> interactionPoints = new List<(InteractionKey key, Transform anchor)>(8);
+
+    public void ShowInteractionButton(InteractionKey key, Transform worldAnchor, bool show)
     {
         if (show)
         {
@@ -52,7 +55,8 @@ public class UIIntreactionButtonDisplay : MonoBehaviour
             var screenPos = cam.WorldToScreenPoint(interactionPoint.anchor.position);
             var uiPoint = canvas.transform.InverseTransformPoint(screenPos);
 
-            buttonImageBuffer[imageIndex].SetImage(interactionPoint.key.ToString());
+            interactionData.TryGetDataForKey(interactionPoint.key, out var data);
+            buttonImageBuffer[imageIndex].SetImage(data.sprite);
             buttonImageBuffer[imageIndex].transform.localPosition = uiPoint;
             imageIndex++;
         }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ProxyTransform : MonoBehaviour
 {
+    //TODO : Make big manager to control group of objects positions
     [SerializeField]
     private Transform target;
 

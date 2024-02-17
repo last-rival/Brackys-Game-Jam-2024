@@ -60,8 +60,6 @@ public class Player : MonoBehaviourInstance<Player>
         {
             inventory[key] = Mathf.Max(count - amount, 0);
         }
-
-        UI_Manager.Instance.UpdateInventroy(inventory);
     }
 
     public void AddKey(InventoryKey key, int amount = 1)
@@ -72,14 +70,6 @@ public class Player : MonoBehaviourInstance<Player>
         }
 
         inventory[key] = amount;
-        UI_Manager.Instance.UpdateInventroy(inventory);
-    }
-
-    public void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            Drop();
-        }
+        UI_Manager.Instance.UpdateInventory(inventory);
     }
 }
