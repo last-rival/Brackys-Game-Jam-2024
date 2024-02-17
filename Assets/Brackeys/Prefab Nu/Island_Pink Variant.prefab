@@ -12,11 +12,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Island_Pink
       objectReference: {fileID: 0}
-    - target: {fileID: 897415050577529700, guid: 26dac1cc3b4610e4cbc504cbe7a7bad8,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 897415050577529699, guid: 26dac1cc3b4610e4cbc504cbe7a7bad8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -72,5 +67,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2177592233762749069, guid: 26dac1cc3b4610e4cbc504cbe7a7bad8,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9aaeee2f899633a4cba641e7b0345602, type: 2}
+    - target: {fileID: 897415049188633916, guid: 26dac1cc3b4610e4cbc504cbe7a7bad8,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bc1a9c1e63870994ca529a8d2177bc3d, type: 2}
+    - target: {fileID: 897415049484058552, guid: 26dac1cc3b4610e4cbc504cbe7a7bad8,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 14ee99711a61bab49a55c9539a4d0d63, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26dac1cc3b4610e4cbc504cbe7a7bad8, type: 3}
