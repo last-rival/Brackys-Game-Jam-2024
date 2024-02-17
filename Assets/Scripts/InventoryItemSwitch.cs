@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Events;
 
 public class InventoryItemSwitch : MonoBehaviour
@@ -14,9 +15,14 @@ public class InventoryItemSwitch : MonoBehaviour
     public InventoryKey activeKey;
 
     [SerializeField]
+    public InventoryKey[] validKeyOptions;
+
+    [SerializeField]
     public KeyChain keyChain;
 
     public WorldButtonClickEvent OnSwitchUpdated;
+
+    List<InventoryKey> keyOptions = new List<InventoryKey>(16);
 
     //void Start()
     //{
@@ -93,5 +99,34 @@ public class InventoryItemSwitch : MonoBehaviour
         OnSwitchUpdated?.Invoke(IsUnlocked());
         //keyChain.ShowKeys(activeKeys);
         keyChain.ShowKey(activeKey);
+    }
+
+    public List<InventoryKey> GetValidInventoryKeys()
+    {
+        keyOptions.Clear();
+
+        var playerInventory = Player.Instance.inventory;
+
+        foreach (var item in playerInventory)
+        {
+            if (item.Value < 1)
+            {
+                continue;
+            }
+
+            if (validKeyOptions == null || validKeyOptions.Length == 0)
+            {
+                keyOptions.Add(item.Key);
+                continue;
+            }
+
+            if (validKeyOptions.Contains(item.Key, out _))
+            {
+                keyOptions.Add(item.Key);
+            }
+        }
+
+        keyOptions.Add(InventoryKey.None);
+        return keyOptions;
     }
 }

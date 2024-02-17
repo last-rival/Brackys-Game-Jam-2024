@@ -5,7 +5,7 @@ using UnityEngine;
 
 public static class FastUtils
 {
-    public static bool Contains<T>(this List<T> list, T item, out int index, bool checkRef = true)
+    public static bool Contains<T>(this List<T> list, T item, out int index, bool checkRef = false)
     {
         index = -1;
 
@@ -34,7 +34,7 @@ public static class FastUtils
         return false;
     }
 
-    public static bool Contains<T>(this T[] arr, T item, out int index, bool checkRef = true)
+    public static bool Contains<T>(this T[] arr, T item, out int index, bool checkRef = false)
     {
         index = -1;
 

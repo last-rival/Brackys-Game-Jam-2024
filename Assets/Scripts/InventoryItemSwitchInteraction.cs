@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Events;
 
 public class InventoryItemSwitchInteraction : MonoBehaviour
@@ -16,22 +17,21 @@ public class InventoryItemSwitchInteraction : MonoBehaviour
 
     public InventoryKeySetEvent OnKeySet;
 
+    List<InventoryKey> validInventoryKeys;
     public void OnInteractionStarted()
     {
         selectedKey = itemSwitch.activeKey;
         ClearKey();
 
         UIInventoryItemSwitchDisplay.Instance.ShowDisplayAt(uiAnchor);
-        UIInventoryItemSwitchDisplay.Instance.ShowInventory();
+        validInventoryKeys = itemSwitch.GetValidInventoryKeys();
+        UIInventoryItemSwitchDisplay.Instance.ShowInventory(validInventoryKeys);
         UIInventoryItemSwitchDisplay.Instance.SetSelectedKey(selectedKey);
+
         itemSwitch.keyChain.ShowKey(selectedKey);
         OnKeySet?.Invoke(selectedKey);
-
+        validInventoryKeys.Contains(selectedKey, out keyIndex);
         enabled = true;
-        if (Player.Instance.GetIndexOfKey(selectedKey, out keyIndex) == false)
-        {
-            keyIndex = -1;
-        }
     }
 
     public void OnInteractionEnded()
@@ -51,24 +51,10 @@ public class InventoryItemSwitchInteraction : MonoBehaviour
             return;
         }
 
-        var inventory = Player.Instance.inventory;
-        if (inventory.Count == 0)
-        {
-            return;
-        }
-
         if (delta < 0)
         {
             keyIndex++;
-            if (keyIndex == inventory.Count)
-            {
-                selectedKey = InventoryKey.None;
-                OnKeySet?.Invoke(selectedKey);
-                ClearKey();
-                return;
-            }
-
-            if (keyIndex > inventory.Count)
+            if (keyIndex >= validInventoryKeys.Count)
             {
                 keyIndex = 0;
             }
@@ -76,33 +62,13 @@ public class InventoryItemSwitchInteraction : MonoBehaviour
         else
         {
             keyIndex--;
-            if (keyIndex == -1)
-            {
-                selectedKey = InventoryKey.None;
-                OnKeySet?.Invoke(selectedKey);
-                ClearKey();
-                return;
-            }
-
             if (keyIndex < 0)
             {
-                keyIndex = inventory.Count - 1;
+                keyIndex = validInventoryKeys.Count - 1;
             }
         }
 
-
-        int index = 0;
-        selectedKey = itemSwitch.activeKey;
-        foreach (var item in inventory)
-        {
-            if (index == keyIndex)
-            {
-                selectedKey = item.Key;
-                break;
-            }
-            index++;
-        }
-
+        selectedKey = validInventoryKeys[keyIndex];
         OnKeySet?.Invoke(selectedKey);
         itemSwitch.keyChain.ShowKey(selectedKey);
         UIInventoryItemSwitchDisplay.Instance.SetSelectedKey(selectedKey);

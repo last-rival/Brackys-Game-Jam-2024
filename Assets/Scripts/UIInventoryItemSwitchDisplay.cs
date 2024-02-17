@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class UIInventoryItemSwitchDisplay : MonoBehaviourInstance<UIInventoryItemSwitchDisplay>
@@ -46,7 +47,7 @@ public class UIInventoryItemSwitchDisplay : MonoBehaviourInstance<UIInventoryIte
         transform.parent = null;
     }
 
-    public void ShowInventory()
+    public void ShowInventory(List<InventoryKey> inventoryKeys)
     {
         for (int i = 0; i < icons.Length; i++)
         {
@@ -56,25 +57,15 @@ public class UIInventoryItemSwitchDisplay : MonoBehaviourInstance<UIInventoryIte
         }
 
         int index = 0;
-        var inventory = Player.Instance.inventory;
-        foreach (var item in inventory)
+        foreach (var key in inventoryKeys)
         {
-            if (inventoyData.TryGetDataForKey(item.Key, out var itemData))
+            if (inventoyData.TryGetDataForKey(key, out var itemData))
             {
-                if (item.Value < 1)
-                {
-                    continue;
-                }
-
                 icons[index].gameObject.SetActive(true);
-                icons[index].SetImage(itemData, item.Key);
+                icons[index].SetImage(itemData, key);
                 index++;
             }
         }
-
-        icons[index].gameObject.SetActive(true);
-        inventoyData.TryGetDataForKey(InventoryKey.None, out var noneData);
-        icons[index].SetImage(noneData, InventoryKey.None);
     }
 
     public void SetSelectedKey(InventoryKey key)

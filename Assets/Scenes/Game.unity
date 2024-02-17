@@ -22182,6 +22182,26 @@ PrefabInstance:
       propertyPath: OnSwitchUpdated.m_PersistentCalls.m_Calls.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1231120447069952440, guid: 1e978e534d056264487a55afec54faa6,
+        type: 3}
+      propertyPath: validKeyOptions.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1231120447069952440, guid: 1e978e534d056264487a55afec54faa6,
+        type: 3}
+      propertyPath: validKeyOptions.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1231120447069952440, guid: 1e978e534d056264487a55afec54faa6,
+        type: 3}
+      propertyPath: validKeyOptions.Array.data[1]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1231120447069952440, guid: 1e978e534d056264487a55afec54faa6,
+        type: 3}
+      propertyPath: validKeyOptions.Array.data[2]
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1274874350, guid: 1e978e534d056264487a55afec54faa6, type: 3}
       propertyPath: portals.Array.size
       value: 3
