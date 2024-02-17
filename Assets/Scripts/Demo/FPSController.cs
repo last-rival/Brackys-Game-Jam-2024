@@ -120,6 +120,11 @@ public class FPSController : PortalTraveller {
 
     }
 
+    private void FixedUpdate()
+    {
+
+    }
+
     public override void Teleport (Transform fromPortal, Transform toPortal, Vector3 pos, Quaternion rot) {
         transform.position = pos;
         Vector3 eulerRot = rot.eulerAngles;
