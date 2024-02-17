@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 546879157314833121}
   - component: {fileID: 4227822329591108850}
-  - component: {fileID: 8081076353347521287}
   m_Layer: 0
   m_Name: InventoryRenderCamera
   m_TagString: Untagged
@@ -76,14 +75,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &8081076353347521287
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 504964733296924016}
-  m_Enabled: 1
 --- !u!1 &1349958337777931622
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,9 +195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carryAnchor: {fileID: 2451661454723106598}
-  inventoryLayer:
-    serializedVersion: 2
-    m_Bits: 0
+  inventoryLayer: 8
 --- !u!1 &1535381020191089684
 GameObject:
   m_ObjectHideFlags: 0

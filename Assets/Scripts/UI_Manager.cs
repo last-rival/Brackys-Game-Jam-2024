@@ -19,6 +19,8 @@ public class UI_Manager : MonoBehaviourInstance<UI_Manager>
 
     internal void UpdateInventroy(Dictionary<InventoryKey, int> inventory)
     {
+        inventoryDisplay.ClearItems();
+
         foreach (var item in inventory)
         {
             inventoryDisplay.ShowInventoryIcon(item.Key, item.Value);

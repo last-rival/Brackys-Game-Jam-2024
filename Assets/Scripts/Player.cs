@@ -35,8 +35,8 @@ public class Player : MonoBehaviourInstance<Player>
             return;
         }
 
-        carryItem.SetParent(null);
         Vector3 localScale = carryItem.transform.localScale;
+        carryItem.SetParent(null);
         carryItem.transform.localScale = localScale;
         carryItem.gameObject.SetLayerRecursive(carryItemLayer);
 
@@ -60,6 +60,8 @@ public class Player : MonoBehaviourInstance<Player>
         {
             inventory[key] = Mathf.Max(count - amount, 0);
         }
+
+        UI_Manager.Instance.UpdateInventroy(inventory);
     }
 
     public void AddKey(InventoryKey key, int amount = 1)

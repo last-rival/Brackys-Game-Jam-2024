@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.PlayerLoop;
 
 public class FPSController : PortalTraveller {
 
@@ -117,11 +118,6 @@ public class FPSController : PortalTraveller {
 
         transform.eulerAngles = Vector3.up * smoothYaw;
         cam.transform.localEulerAngles = Vector3.right * smoothPitch;
-
-    }
-
-    private void FixedUpdate()
-    {
 
     }
 

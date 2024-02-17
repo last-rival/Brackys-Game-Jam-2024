@@ -31,9 +31,8 @@ public class CarryItem : MonoBehaviour, ICarryItem
     public void OnPlayerInteraction(bool isOn)
     {
         if (rb.isKinematic == false)
-        {
+        {   
             Player.Instance.Carry(transform);
-            Player.Instance.AddKey(Key);
             interaction.enabled = false;
         }
     }
@@ -41,12 +40,14 @@ public class CarryItem : MonoBehaviour, ICarryItem
     public void OnCarry(Transform parent)
     {
         rb.isKinematic = true;
+        Player.Instance.AddKey(Key);
         onCarry?.Invoke(Key);
     }
 
     public void OnDrop(Transform parent)
     {
         rb.isKinematic = false;
+        Player.Instance.UseKey(Key);
         onDrop?.Invoke(Key);
     }
 }

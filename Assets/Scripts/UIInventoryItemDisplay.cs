@@ -28,4 +28,12 @@ public class UIInventoryItemDisplay : MonoBehaviour
             }
         }
     }
+
+    public void ClearItems()
+    {
+        foreach (var icon in inventoryIcons)
+        {
+            icon.gameObject.SetActive(false);
+        }
+    }
 }
