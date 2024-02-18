@@ -44,7 +44,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 0
+  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -3293,10 +3293,23 @@ PrefabInstance:
       propertyPath: antialiasingMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 948043057, guid: 5101aee443b6c4e028aae23d799c5fa4, type: 3}
+      propertyPath: m_ShowToolkit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 948043057, guid: 5101aee443b6c4e028aae23d799c5fa4, type: 3}
+      propertyPath: m_ShowCustomSorter
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7665427741182837592, guid: 5101aee443b6c4e028aae23d799c5fa4,
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2103655364666215903, guid: 5101aee443b6c4e028aae23d799c5fa4,
+        type: 3}
+      propertyPath: m_Pitch
+      value: 1.49
       objectReference: {fileID: 0}
     - target: {fileID: 1244897213998883306, guid: 5101aee443b6c4e028aae23d799c5fa4,
         type: 3}
@@ -3308,11 +3321,6 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 0.472
       objectReference: {fileID: 0}
-    - target: {fileID: 2103655364666215903, guid: 5101aee443b6c4e028aae23d799c5fa4,
-        type: 3}
-      propertyPath: m_Pitch
-      value: 1.49
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5101aee443b6c4e028aae23d799c5fa4, type: 3}
 --- !u!4 &1128601917 stripped
@@ -3321,6 +3329,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1128601916}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1128601918 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 948043056, guid: 5101aee443b6c4e028aae23d799c5fa4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1128601916}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1207734116 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4205883210597636914, guid: 7d910c7b5489d7e48874dbe1cc29aca8,
@@ -8761,6 +8781,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6060941239318745299, guid: fe9d6a3377d15044bac1051a094bd8fe,
+        type: 3}
+      propertyPath: volume
+      value: 
+      objectReference: {fileID: 1128601918}
+    - target: {fileID: 6060941239318745299, guid: fe9d6a3377d15044bac1051a094bd8fe,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1128601917}
+    - target: {fileID: 6060941239318745299, guid: fe9d6a3377d15044bac1051a094bd8fe,
+        type: 3}
+      propertyPath: bloom.min
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6060941239318745299, guid: fe9d6a3377d15044bac1051a094bd8fe,
+        type: 3}
+      propertyPath: bloom.max
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6060941239318745299, guid: fe9d6a3377d15044bac1051a094bd8fe,
+        type: 3}
+      propertyPath: chormatic.max
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe9d6a3377d15044bac1051a094bd8fe, type: 3}
 --- !u!1001 &897415049282332823
@@ -9827,6 +9872,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 4556258464389781414, guid: 588ac06cb3c2a2c4b9d8ab471e2e810f,
+        type: 3}
+      propertyPath: linkedPortal
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1914243457704481690, guid: 588ac06cb3c2a2c4b9d8ab471e2e810f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9921,11 +9971,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 4556258464389781414, guid: 588ac06cb3c2a2c4b9d8ab471e2e810f,
-        type: 3}
-      propertyPath: linkedPortal
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8433977733102679197, guid: 588ac06cb3c2a2c4b9d8ab471e2e810f,
         type: 3}
