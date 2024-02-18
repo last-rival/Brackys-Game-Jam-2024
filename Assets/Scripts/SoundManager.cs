@@ -9,6 +9,8 @@ public class SoundManager : MonoBehaviourInstance<SoundManager>
     public AudioClip set;
     public AudioSource walk;
     public AudioSource sfx;
+    public AudioSource jumpSource;
+    
 
     public void PlayPickUp()
     {
@@ -18,8 +20,8 @@ public class SoundManager : MonoBehaviourInstance<SoundManager>
 
     public void PlayJump()
     {
-        sfx.clip = jump;
-        sfx.Play();
+        jumpSource.clip = jump;
+        jumpSource.Play();
     }
 
     public void PlaySet()
