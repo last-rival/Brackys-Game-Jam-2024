@@ -38,6 +38,8 @@ public class FPSController : PortalTraveller
     float lastGroundedTime;
     bool disabled;
 
+    public static bool allowInput = true;
+
     void Awake()
     {
         Instance = this;
@@ -76,6 +78,11 @@ public class FPSController : PortalTraveller
         }
 
         if (disabled)
+        {
+            return;
+        }
+
+        if (allowInput == false)
         {
             return;
         }
