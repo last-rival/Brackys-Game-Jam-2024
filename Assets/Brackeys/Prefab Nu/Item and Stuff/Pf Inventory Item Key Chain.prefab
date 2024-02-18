@@ -167,15 +167,7 @@ MonoBehaviour:
   - key: 2
     visual: {fileID: 1644885099849011324}
   - key: 4
-    visual: {fileID: 2200125778280055012}
-  - key: 6
     visual: {fileID: 6527902081277100985}
-  - key: 5
-    visual: {fileID: 6461800034252176583}
-  - key: 7
-    visual: {fileID: 1380024320339057471}
-  - key: 8
-    visual: {fileID: 1176980311004804772}
 --- !u!1 &968688030326103094
 GameObject:
   m_ObjectHideFlags: 0

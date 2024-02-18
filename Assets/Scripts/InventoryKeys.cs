@@ -4,9 +4,5 @@
     RedBall,
     GreenBall,
     BlueBall,
-    YellowBall,
-    PinkBall,
-    CyanBall,
-    BlackBall,
-    WhiteBall
+    MiscBall,
 }

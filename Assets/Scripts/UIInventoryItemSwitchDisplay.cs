@@ -1,6 +1,7 @@
 ﻿using DG.Tweening;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIInventoryItemSwitchDisplay : MonoBehaviourInstance<UIInventoryItemSwitchDisplay>
 {
@@ -13,31 +14,43 @@ public class UIInventoryItemSwitchDisplay : MonoBehaviourInstance<UIInventoryIte
     [SerializeField]
     UIInventoryItemSwitchSelectionIcons[] icons;
 
+    [SerializeField]
+    GameObject itemGrid;
+
+    [SerializeField]
+    UIInventorySwitchRequirementsDisplay requirementsDisplay;
+
+    Vector3 localScale;
+    Tween activeTween;
+
     protected override void OnAwake()
     {
+        localScale = transform.localScale;
         gameObject.SetActive(false);
     }
 
     public void ShowDisplayAt(Transform anchor)
     {
-        anchor.DOKill();
+        activeTween?.Kill();
 
         billboard.enabled = true;
 
         transform.SetParent(anchor);
         transform.localPosition = Vector3.zero;
         anchor.localScale = Vector3.zero;
-        anchor.DOScale(Vector3.one, 0.35f).SetEase(Ease.OutBack);
+
+        transform.localScale = localScale;
+        activeTween = anchor.DOScale(Vector3.one, 0.35f).SetEase(Ease.OutBack);
         gameObject.SetActive(true);
     }
 
     public void HideDisplay()
     {
         billboard.enabled = false;
+        activeTween?.Kill();
 
         var anchor = transform.parent;
-        anchor.DOKill();
-        anchor.DOScale(Vector3.zero, 0.35f).SetEase(Ease.OutQuint).onComplete = DisableGO;
+        activeTween = anchor.DOScale(Vector3.zero, 0.35f).SetEase(Ease.OutQuint).OnComplete(DisableGO);
     }
 
     void DisableGO()
@@ -49,6 +62,9 @@ public class UIInventoryItemSwitchDisplay : MonoBehaviourInstance<UIInventoryIte
 
     public void ShowInventory(List<InventoryKey> inventoryKeys)
     {
+        itemGrid.SetActive(true);
+        requirementsDisplay.gameObject.SetActive(false);
+
         for (int i = 0; i < icons.Length; i++)
         {
             icons[i].key = InventoryKey.None;
@@ -74,6 +90,13 @@ public class UIInventoryItemSwitchDisplay : MonoBehaviourInstance<UIInventoryIte
         {
             icons[i].SetSelected(icons[i].key == key);
         }
+    }
+
+    public void ShowLockedWindow(int current, int total, bool misc = false)
+    {
+        requirementsDisplay.gameObject.SetActive(true);
+        itemGrid.SetActive(false);
+        requirementsDisplay.ShowRequirements(current, total, misc);
     }
 }
 

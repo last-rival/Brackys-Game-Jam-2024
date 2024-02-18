@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,6 +10,13 @@ public class InventoryItemSwitch : MonoBehaviour
     //[SerializeField]
     //public InventoryKey[] activeKeys;
 
+    [Serializable]
+    public struct InventoryKeyValuePair
+    {
+        public InventoryKey key;
+        public int amount;
+    }
+
     [SerializeField]
     public InventoryKey requiredKey;
     [SerializeField]
@@ -16,6 +24,9 @@ public class InventoryItemSwitch : MonoBehaviour
 
     [SerializeField]
     public InventoryKey[] validKeyOptions;
+
+    [SerializeField]
+    public InventoryKeyValuePair[] requiredItemInInventory;
 
     [SerializeField]
     KeyChain keyChain;
@@ -136,5 +147,28 @@ public class InventoryItemSwitch : MonoBehaviour
 
         keyOptions.Add(InventoryKey.None);
         return keyOptions;
+    }
+
+    public bool AreRequirementsMet(out int current, out int total, out bool isMisc)
+    {
+        current = 0; total = 0; isMisc = false;
+
+        if (requiredItemInInventory.Length == 0)
+            return true;
+
+        var inventory = Player.Instance.inventory;
+        for (int i = 0; i < requiredItemInInventory.Length; i++)
+        {
+            var req = requiredItemInInventory[i];
+            total = total + (req.amount == 0 ? 1 : req.amount);
+            isMisc = req.key == InventoryKey.MiscBall;
+            if (inventory.TryGetValue(req.key, out var amount) == false)
+            {
+                continue;
+            }
+            current = current + (amount == 0 ? 1 : amount);
+        }
+
+        return current >= total;
     }
 }

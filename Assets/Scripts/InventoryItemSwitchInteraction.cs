@@ -10,7 +10,7 @@ public class InventoryItemSwitchInteraction : MonoBehaviour
     [SerializeField]
     int keyIndex = 0;
     [SerializeField]
-    InventoryKey selectedKey;
+    public InventoryKey selectedKey;
 
     [SerializeField]
     Transform uiAnchor;
@@ -20,10 +20,18 @@ public class InventoryItemSwitchInteraction : MonoBehaviour
     List<InventoryKey> validInventoryKeys;
     public void OnInteractionStarted()
     {
+        UIInventoryItemSwitchDisplay.Instance.ShowDisplayAt(uiAnchor);
+
+        if (itemSwitch.AreRequirementsMet(out var current, out var total, out var isMisc) == false)
+        {
+            UIInventoryItemSwitchDisplay.Instance.ShowLockedWindow(current, total, isMisc);
+            return;
+        }
+
         selectedKey = itemSwitch.activeKey;
         ClearKey();
 
-        UIInventoryItemSwitchDisplay.Instance.ShowDisplayAt(uiAnchor);
+
         validInventoryKeys = itemSwitch.GetValidInventoryKeys();
         UIInventoryItemSwitchDisplay.Instance.ShowInventory(validInventoryKeys);
         UIInventoryItemSwitchDisplay.Instance.SetSelectedKey(selectedKey);
