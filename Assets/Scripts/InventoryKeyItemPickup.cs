@@ -33,6 +33,7 @@ public class InventoryKeyItemPickup : MonoBehaviour, ICarryItem
         interaction.enabled = false;
         Player.Instance.AddKey(Key);
         gameObject.SetActive(false);
+        SoundManager.Instance.PlayPickUp();
     }
 
     public void OnPlayerInteractionCarry(bool _)

@@ -78,6 +78,7 @@ public class InventoryItemSwitchInteraction : MonoBehaviour
         selectedKey = validInventoryKeys[keyIndex];
         OnKeySet?.Invoke(selectedKey);
         itemSwitch.ShowKey(selectedKey);
+        SoundManager.Instance.PlaySet();
         UIInventoryItemSwitchDisplay.Instance.SetSelectedKey(selectedKey);
     }
 
