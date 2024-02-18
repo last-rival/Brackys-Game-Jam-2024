@@ -27,6 +27,11 @@ public class PortalConnectionHUB : MonoBehaviour
         {
             interaction.OnKeySet.AddListener(OnConnectionUpdated);
         }
+
+        foreach (var path in map)
+        {
+            path.portal.transform.parent.gameObject.SetActive(false);
+        }
     }
 
     public void OnConnectionUpdated(InventoryKey _)
@@ -65,6 +70,8 @@ public class PortalConnectionHUB : MonoBehaviour
 
     void ConnectToPortal(Portal portal)
     {
+        portal.transform.parent.gameObject.SetActive(true);
+
         connectedPortal.linkedPortal = portal;
         portal.linkedPortal = connectedPortal;
 
@@ -76,6 +83,7 @@ public class PortalConnectionHUB : MonoBehaviour
     {
         if (connectedPortal.linkedPortal != null)
         {
+            connectedPortal.linkedPortal.transform.parent.gameObject.SetActive(false);
             connectedPortal.linkedPortal.linkedPortal = null;
         }
         connectedPortal.linkedPortal = null;

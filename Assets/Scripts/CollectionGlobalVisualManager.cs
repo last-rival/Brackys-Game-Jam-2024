@@ -35,7 +35,6 @@ public class CollectionGlobalVisualManager : MonoBehaviour
                 localStates[i] = collectibles[i].activeSelf;
                 sharedState[i] = localStates[i];
                 isDirty = true;
-                print($"isDirty at {i}");
             }
         }
     }
