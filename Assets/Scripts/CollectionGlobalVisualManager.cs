@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class CollectionGlobalVisualManager : MonoBehaviour
 {
@@ -8,6 +9,13 @@ public class CollectionGlobalVisualManager : MonoBehaviour
 
     static bool isDirty;
     static bool[] sharedState;
+
+    static List<CollectionGlobalVisualManager> syncs = new List<CollectionGlobalVisualManager>();
+
+    void Awake()
+    {
+        syncs.Add(this);
+    }
 
     void Start()
     {
@@ -43,8 +51,16 @@ public class CollectionGlobalVisualManager : MonoBehaviour
     {
         if (isDirty)
         {
-            SetStateFromGlobal();
+            UpdateAll();
             isDirty = false;
+        }
+    }
+
+    public static void UpdateAll()
+    {
+        foreach (var sync in syncs)
+        {
+            sync.SetStateFromGlobal();
         }
     }
 
