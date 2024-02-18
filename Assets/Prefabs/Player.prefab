@@ -119,7 +119,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: c469bdd437e9e524ab6b8a9c55faa602, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 1
+  m_Pitch: 1.49
   Loop: 1
   Mute: 0
   Spatialize: 0
@@ -460,7 +460,7 @@ MonoBehaviour:
     m_Bits: 1024
   stopNaNPropagation: 1
   finalBlitToCameraTarget: 0
-  antialiasingMode: 0
+  antialiasingMode: 1
   temporalAntialiasing:
     jitterSpread: 0.75
     sharpness: 0.25
@@ -496,8 +496,8 @@ MonoBehaviour:
       colorBlindnessType: 0
       colorBlindnessStrength: 1
   m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
-  m_ShowToolkit: 0
-  m_ShowCustomSorter: 0
+  m_ShowToolkit: 1
+  m_ShowCustomSorter: 1
   breakBeforeColorGrading: 0
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
@@ -677,7 +677,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickup: {fileID: 8300000, guid: 349a618bedadd3e4fac0e898ed9a3d8a, type: 3}
-  jump: {fileID: 8300000, guid: 33b911073885d7e4e8497881b9717a08, type: 3}
+  jump: {fileID: 8300000, guid: ecc3e44cbcd852a4a9c7f71cfb3fdb69, type: 3}
   set: {fileID: 8300000, guid: cc0bb61e9605bbe4e9abd5b1306fc0e5, type: 3}
   walk: {fileID: 2103655364666215903}
   sfx: {fileID: 6094619876700946305}
@@ -694,7 +694,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.472
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -825,7 +825,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7665427741182837590}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

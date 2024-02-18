@@ -27,6 +27,8 @@ public class HeavenGatePath : MonoBehaviour
     public HeavenGateStart start;
     public HeavenGateEnd end;
 
+    public CanvasGroup toBlack;
+
     public static bool inGate;
 
     void Update()
@@ -40,6 +42,7 @@ public class HeavenGatePath : MonoBehaviour
         float current = Vector3.Distance(start.transform.position, player.position);
         volume.sharedProfile.GetSetting<Bloom>().intensity = new FloatParameter { value = bloom.GetValue(current / total), overrideState = true };
         volume.sharedProfile.GetSetting<ChromaticAberration>().intensity = new FloatParameter { value = chormatic.GetValue(current / total), overrideState = true };
+        toBlack.alpha = chormatic.GetValue(current / total);
     }
 
     void OnTriggerExit(Collider other)
@@ -48,5 +51,9 @@ public class HeavenGatePath : MonoBehaviour
             return;
 
         inGate = false;
+
+        volume.sharedProfile.GetSetting<Bloom>().intensity = new FloatParameter { value = bloom.GetValue(0), overrideState = true };
+        volume.sharedProfile.GetSetting<ChromaticAberration>().intensity = new FloatParameter { value = chormatic.GetValue(0), overrideState = true };
+        toBlack.alpha = chormatic.GetValue(0);
     }
 }
