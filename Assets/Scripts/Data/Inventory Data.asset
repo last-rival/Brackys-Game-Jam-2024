@@ -14,17 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data:
   - key: 1
-    image: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-    color: {r: 1, g: 0, b: 0, a: 1}
+    image: {fileID: 21300000, guid: b5d4c13d26359484e88b6aa4c837f851, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
   - key: 2
-    image: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-    color: {r: 0, g: 1, b: 0, a: 1}
+    image: {fileID: 21300000, guid: c7659b0a1c06dc440beb8e62c6dccc40, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
   - key: 3
-    image: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-    color: {r: 0, g: 0, b: 1, a: 1}
+    image: {fileID: 21300000, guid: aa2bc2458dcc85f479f8c4f6e79fdfcf, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
   - key: 4
-    image: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-    color: {r: 0.7000003, g: 0, b: 1, a: 1}
+    image: {fileID: 21300000, guid: 71a37ff43dc992248af124b4db135f4e, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
   - key: 0
-    image: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-    color: {r: 0, g: 0, b: 0, a: 1}
+    image: {fileID: 21300000, guid: 108f5f87d1cee0941a24bec43de45f7e, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}

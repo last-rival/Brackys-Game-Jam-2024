@@ -5,19 +5,17 @@ using UnityEngine.UI;
 public class UIInventorySwitchRequirementsDisplay : MonoBehaviour
 {
     [SerializeField]
-    private Sprite commonSprite;
-    [SerializeField]
-    private Sprite miscSprite;
+    public GameObject[] onItems;
 
     [SerializeField]
-    TextMeshProUGUI counterText;
-
-    [SerializeField]
-    Image itemIcon;
+    public GameObject[] offItems;
 
     public void ShowRequirements(int current, int total, bool misc)
     {
-        itemIcon.sprite = misc ? miscSprite : commonSprite;
-        counterText.SetText("{0}/{1}", current, total);
+        for (int i = 0; i < total; i++)
+        {
+            onItems[i].SetActive(i < current);
+            offItems[i].SetActive(i >= current);
+        }
     }
 }
