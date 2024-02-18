@@ -90,7 +90,7 @@ public class FPSController : PortalTraveller
         velocity = Vector3.SmoothDamp(velocity, targetVelocity, ref smoothV, smoothMoveTime);
 
 
-        SoundManager.Instance.SetWalk(velocity.sqrMagnitude > 1f);
+        SoundManager.Instance.SetWalk(velocity.sqrMagnitude > 1f && jumping == false);
         verticalVelocity -= gravity * Time.deltaTime;
         velocity = new Vector3(velocity.x, verticalVelocity, velocity.z);
 
