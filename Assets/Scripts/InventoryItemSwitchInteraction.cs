@@ -31,7 +31,6 @@ public class InventoryItemSwitchInteraction : MonoBehaviour
         selectedKey = itemSwitch.activeKey;
         ClearKey();
 
-
         validInventoryKeys = itemSwitch.GetValidInventoryKeys();
         UIInventoryItemSwitchDisplay.Instance.ShowInventory(validInventoryKeys);
         UIInventoryItemSwitchDisplay.Instance.SetSelectedKey(selectedKey);
@@ -99,7 +98,6 @@ public class InventoryItemSwitchInteraction : MonoBehaviour
         UIInventoryItemSwitchDisplay.Instance.SetSelectedKey(InventoryKey.None);
     }
 }
-
 
 [System.Serializable]
 public class InventoryKeySetEvent : UnityEvent<InventoryKey> { }

@@ -169,6 +169,12 @@ public class InventoryItemSwitch : MonoBehaviour
             current = current + (amount == 0 ? 1 : amount);
         }
 
+        if (total == 6)
+        {
+            total -= 3;
+            current = Mathf.Max(0, current - 3);
+        }
+
         return current >= total;
     }
 }

@@ -12,6 +12,7 @@ public class UIInventoryItemDisplay : MonoBehaviour
 
     public void ShowInventoryIcon(InventoryKey key, int amount)
     {
+        return;
         if (itemData.TryGetDataForKey(key, out var data) == false)
         {
             return;
@@ -31,6 +32,7 @@ public class UIInventoryItemDisplay : MonoBehaviour
 
     public void ClearItems()
     {
+        return;
         foreach (var icon in inventoryIcons)
         {
             icon.gameObject.SetActive(false);
