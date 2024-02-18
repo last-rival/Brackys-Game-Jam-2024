@@ -96,7 +96,8 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
     m_ExportTrainingData: 0
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 5fc649d38d30e8a4e8af298e33680f9b,
+    type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
@@ -3306,11 +3307,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2103655364666215903, guid: 5101aee443b6c4e028aae23d799c5fa4,
-        type: 3}
-      propertyPath: m_Pitch
-      value: 1.49
-      objectReference: {fileID: 0}
     - target: {fileID: 1244897213998883306, guid: 5101aee443b6c4e028aae23d799c5fa4,
         type: 3}
       propertyPath: jump
@@ -3320,6 +3316,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Volume
       value: 0.472
+      objectReference: {fileID: 0}
+    - target: {fileID: 2103655364666215903, guid: 5101aee443b6c4e028aae23d799c5fa4,
+        type: 3}
+      propertyPath: m_Pitch
+      value: 1.49
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5101aee443b6c4e028aae23d799c5fa4, type: 3}
@@ -8781,6 +8782,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1992989063, guid: fe9d6a3377d15044bac1051a094bd8fe, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372020296692237979, guid: fe9d6a3377d15044bac1051a094bd8fe,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6060941239318745299, guid: fe9d6a3377d15044bac1051a094bd8fe,
         type: 3}
       propertyPath: volume
@@ -9872,11 +9882,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
-    - target: {fileID: 4556258464389781414, guid: 588ac06cb3c2a2c4b9d8ab471e2e810f,
-        type: 3}
-      propertyPath: linkedPortal
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 1914243457704481690, guid: 588ac06cb3c2a2c4b9d8ab471e2e810f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9971,6 +9976,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4556258464389781414, guid: 588ac06cb3c2a2c4b9d8ab471e2e810f,
+        type: 3}
+      propertyPath: linkedPortal
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8433977733102679197, guid: 588ac06cb3c2a2c4b9d8ab471e2e810f,
         type: 3}
