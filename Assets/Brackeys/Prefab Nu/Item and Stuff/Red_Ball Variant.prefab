@@ -1,5 +1,24 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!95 &1230767990447869040
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5952390177388253003}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0eab73a575be95c40bac9c2a6c8c5559, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &7721833437324362390
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10,7 +29,7 @@ PrefabInstance:
     - target: {fileID: 4157479745538461149, guid: f67d278adce99554cb34a527c20c15aa,
         type: 3}
       propertyPath: m_Name
-      value: Red_Ball
+      value: Red_Ball Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4157479745538461127, guid: f67d278adce99554cb34a527c20c15aa,
         type: 3}
@@ -96,6 +115,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 1ebde4ea95513224c8c29820f7862cf9, type: 2}
+      objectReference: {fileID: 2100000, guid: aa663879d9d50744db5f5d3205ed7b97, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f67d278adce99554cb34a527c20c15aa, type: 3}
+--- !u!1 &5952390177388253003 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4157479745538461149, guid: f67d278adce99554cb34a527c20c15aa,
+    type: 3}
+  m_PrefabInstance: {fileID: 7721833437324362390}
+  m_PrefabAsset: {fileID: 0}
