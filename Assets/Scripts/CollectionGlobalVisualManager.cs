@@ -68,7 +68,7 @@ public class CollectionGlobalVisualManager : MonoBehaviour
     {
         for (int i = 0; i < collectibles.Length; i++)
         {
-            collectibles[i].SetActive(sharedState[i]);
+            collectibles[i]?.SetActive(sharedState[i]);
         }
     }
 }
